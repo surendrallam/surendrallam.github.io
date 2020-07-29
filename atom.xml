@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="https://www.w3.org/2005/Atom">
+
+ <title>Hello. I'm Dilip Lilaramani.</title>
+ <link href="https://diliplilaramani.github.io/phantom//atom.xml" rel="self"/>
+ <link href="https://diliplilaramani.github.io/phantom//"/>
+ <updated>2018-07-24T19:52:25+00:00</updated>
+ <id>https://diliplilaramani.github.io/phantom/</id>
+ <author>
+   <name>Dilip Lilaramani</name>
+   <email>jami0821@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Phantom</title>
+   <link href="https://diliplilaramani.github.io/phantom//development/design/2016/02/20/phantom-jekyll-template.html"/>
+   <updated>2016-02-20T21:15:00+00:00</updated>
+   <id>https://diliplilaramani.github.io/phantom//development/design/2016/02/20/phantom-jekyll-template</id>
+   <content type="html">
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rescue Themes</title>
+   <link href="https://diliplilaramani.github.io/phantom//development/design/2016/02/20/rescue-themes.html"/>
+   <updated>2016-02-20T15:56:00+00:00</updated>
+   <id>https://diliplilaramani.github.io/phantom//development/design/2016/02/20/rescue-themes</id>
+   <content type="html">
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Weathercast</title>
+   <link href="https://diliplilaramani.github.io/phantom//development/2016/02/20/weathercast.html"/>
+   <updated>2016-02-20T15:56:00+00:00</updated>
+   <id>https://diliplilaramani.github.io/phantom//development/2016/02/20/weathercast</id>
+   <content type="html">
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Bloc Jams Angular</title>
+   <link href="https://diliplilaramani.github.io/phantom//development/2016/02/20/bloc-jams-angular.html"/>
+   <updated>2016-02-20T14:15:00+00:00</updated>
+   <id>https://diliplilaramani.github.io/phantom//development/2016/02/20/bloc-jams-angular</id>
+   <content type="html">
+</content>
+ </entry>
+ 
+
+</feed>
