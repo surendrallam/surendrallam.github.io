@@ -1,3 +1,3 @@
-# Vinitra's personal website
+# Surendra Allam's personal website
 
-### [vinitra.github.io](http://vinitra.github.io)
+### [surendrallam.github.io](http://surendrallam.github.io)
