@@ -59,7 +59,7 @@ const Contact = () => {
                 <div className="flex items-center gap-4 p-6 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20">
                   <div className="flex gap-3">
                     <a 
-                      href="https://linkedin.com/in/surendra-allam" 
+                      href="https://linkedin.com/in/surendrallam" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="p-4 rounded-xl bg-primary/20 hover:bg-primary/30 transition-all hover:scale-110"
