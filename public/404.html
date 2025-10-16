@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      // Redirect to index.html to handle client-side routing
+      sessionStorage.redirect = location.href;
+      location.replace(location.origin + '/');
+    </script>
+  </head>
+  <body>
+    <noscript>Please enable JavaScript to view this site.</noscript>
+  </body>
+</html>
