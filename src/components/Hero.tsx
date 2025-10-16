@@ -42,7 +42,7 @@ const Hero = () => {
             </p>
 
             <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-              8+ years of experience leading cross-functional teams, optimizing ML models, and delivering 
+              A decade of experience leading cross-functional teams, optimizing ML models, and delivering 
               cutting-edge AI solutions from concept to production. Published researcher with multiple 
               industry awards for technical excellence and leadership.
             </p>
