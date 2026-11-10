@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="index, follow">
 <meta name="description" content="Surendra Allam builds AI agents, knowledge assistants and voice agents into existing products, and measures them: accuracy, cost per answer, latency.">
 <meta property="og:title" content="Surendra Allam, Senior AI engineer">
 <meta property="og:description" content="AI features that hold up in production. Open-source benchmark: Claude Haiku 5.5 answered 96.7% of 50 data questions correctly at $0.67 per 1,000.">
@@ -76,6 +77,8 @@ body {
 img { max-width: 100%; display: block; }
 a { color: var(--accent); text-underline-offset: 3px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.skip-link { position: absolute; top: -100px; left: 16px; background: var(--accent); color: var(--accent-ink); padding: 8px 14px; border-radius: 6px; z-index: 1000; text-decoration: none; font-weight: 600; font-size: var(--step--1); }
+.skip-link:focus { top: 16px; }
 
 .wrap {
   max-width: 1120px;
@@ -122,6 +125,8 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .news { display: inline-flex; align-items: center; gap: 10px; width: fit-content; max-width: 100%; padding: 6px 14px 6px 6px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); text-decoration: none; font-size: var(--step--1); }
 .news b { font: 600 0.6875rem/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 8px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); flex: none; }
 .news:hover { border-color: var(--accent); }
+.availability { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); }
+.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--good); flex: none; }
 
 .ledger { padding: 8px 24px; }
 .ledger-row { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 16px; padding-block: 18px; border-bottom: 1px dashed var(--line); align-items: baseline; }
@@ -163,6 +168,12 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .cases-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .case .actions { margin-top: 2px; }
 
+/* Mid-funnel conversion CTA */
+.work-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 32px; margin-top: 24px; }
+.work-cta-copy { display: grid; gap: 6px; }
+.work-cta-copy h3 { font-size: var(--step-1); font-weight: 700; }
+.work-cta-copy p { color: var(--muted); font-size: 0.9375rem; }
+
 /* Packaged offers */
 .offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .offer { display: grid; gap: 14px; align-content: start; padding: 26px; }
@@ -173,6 +184,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .offer-terms .price { font-weight: 700; color: var(--fg); }
 .offer-terms .duration { color: var(--muted); }
 .offer p { color: var(--muted); font-size: 0.9375rem; }
+.offer .actions { margin-top: auto; padding-top: 6px; }
 
 /* Field notes */
 .notes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; counter-reset: note; }
@@ -232,6 +244,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .foot-brand { display: inline-flex; align-items: center; gap: 10px; }
 .foot-brand svg { width: 20px; height: 20px; color: var(--accent); flex: none; }
 .site-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding-block: 28px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--step--1); }
+.mobile-cta { display: none; }
 
 @media (max-width: 960px) {
   .hero, .contact { grid-template-columns: minmax(0, 1fr); gap: 36px; }
@@ -250,6 +263,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
   .hero { padding-block: 28px 52px; }
   .notes, .services, .steps, .offers { grid-template-columns: minmax(0, 1fr); }
   .featured-body, .case, .service, .note, .offer { padding: 22px; }
+  .work-cta { padding: 22px; }
   .about { grid-template-columns: minmax(0, 1fr); }
   .about > div:last-child { grid-column: auto; }
   .timeline li { grid-template-columns: minmax(0, 1fr); }
@@ -257,6 +271,8 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
   .results { font-size: 0.875rem; }
   .results .wide { display: none; }
   .results .narrow { display: inline; }
+  .mobile-cta { display: block; position: fixed; bottom: max(16px, env(safe-area-inset-bottom, 16px)); right: 16px; z-index: 99; transition: opacity 0.2s ease; }
+  .mobile-cta .btn { box-shadow: 0 4px 16px color-mix(in srgb, var(--fg) 20%, transparent); padding: 12px 18px; font-size: var(--step--1); }
 }
 @media (max-width: 420px) {
   .ledger-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -269,6 +285,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 </style>
 </head>
 <body>
+<a href="#top" class="skip-link">Skip to main content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="sa-mark" viewBox="0 0 64 64"><path d="M25.7 8H16A10 10 0 0 0 6 18V26A10 10 0 0 0 16 36H54V28H16A2 2 0 0 1 14 26V18A2 2 0 0 1 16 16H23.3ZM26 32V46A2 2 0 0 1 24 48H6V56H24A10 10 0 0 0 34 46V32ZM33.83 33.15L38.98 16H45.02L50 32.59V56H58V31.41L50.98 8H33.02L26.17 30.85Z"/></symbol></svg>
 <div class="wrap">
   <header class="site-head">
@@ -288,6 +305,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
     <div class="hero">
       <div class="hero-copy">
         <a class="news" href="#work"><b>New</b><span>Open-source benchmark: 3 Claude models, 50 data questions</span></a>
+        <div class="availability"><span class="status-dot" aria-hidden="true"></span><span>Available for selective projects · Overlapping US day and UK evenings</span></div>
         <p class="eyebrow">Senior AI engineer · Bengaluru, India</p>
         <h1>AI features that hold up in production.</h1>
         <p class="lede">I build AI agents, knowledge assistants and voice agents into products that already have users. Then I measure them: accuracy, cost per answer, latency.</p>
@@ -417,6 +435,17 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           <div class="metric"><strong>Weeks → days</strong><span>feature delivery time</span></div>
         </article>
       </div>
+
+      <div class="work-cta card">
+        <div class="work-cta-copy">
+          <h3>Have an AI feature or assistant in mind?</h3>
+          <p>Send three lines about what you want to build. I reply with a scoped plan and a fixed price.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Tell me what you want to build</a>
+          <a class="btn btn-ghost" href="#offers">View packaged offers</a>
+        </div>
+      </div>
     </section>
 
     <section id="notes" aria-labelledby="notes-title">
@@ -510,6 +539,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           </div>
           <p>Answers grounded in your documents and data, with citations and accuracy checks. Or a tool-calling agent connected to your CRM, Slack, helpdesk or database.</p>
           <ul class="chips" aria-label="Included"><li>Citations</li><li>Retrieval</li><li>Evals</li><li>Tool use</li></ul>
+          <div class="actions"><a class="btn btn-ghost arrow" href="#contact">Discuss this offer</a></div>
         </article>
         <article class="offer card">
           <div class="offer-head">
@@ -522,6 +552,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           </div>
           <p>Prompt caching, model routing and evaluations, so quality holds while the bill falls. Includes a benchmark on your own questions before you pick a model.</p>
           <ul class="chips" aria-label="Included"><li>Prompt caching</li><li>Model routing</li><li>Evals</li></ul>
+          <div class="actions"><a class="btn btn-ghost arrow" href="#contact">Discuss this offer</a></div>
         </article>
         <article class="offer card">
           <div class="offer-head">
@@ -534,6 +565,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           </div>
           <p>An inbound receptionist or outbound qualification calls in English and Hindi or Hinglish, tested and deployed with your telephony setup.</p>
           <ul class="chips" aria-label="Included"><li>Retell</li><li>Vapi</li><li>Bolna</li><li>LiveKit</li></ul>
+          <div class="actions"><a class="btn btn-ghost arrow" href="#contact">Discuss this offer</a></div>
         </article>
       </div>
     </section>
@@ -632,30 +664,51 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
     <span>Built with Claude Code</span>
   </footer>
 </div>
+<div class="mobile-cta" id="mobile-cta">
+  <a class="btn btn-primary" href="#contact">Tell me what you want to build →</a>
+</div>
 <script>
 (function () {
   var button = document.getElementById("copy-email");
   var email = document.getElementById("email");
-  if (!button || !email) return;
-  function selectEmail() {
-    var range = document.createRange();
-    range.selectNodeContents(email);
-    var sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-  }
-  button.addEventListener("click", function () {
-    var text = email.textContent.trim();
-    try {
-      navigator.clipboard.writeText(text).then(function () {
-        button.textContent = "Copied";
-        setTimeout(function () { button.textContent = "Copy"; }, 1600);
-      }, function () { selectEmail(); button.textContent = "Press Ctrl+C"; });
-    } catch (e) {
-      selectEmail();
-      button.textContent = "Press Ctrl+C";
+  if (button && email) {
+    function selectEmail() {
+      var range = document.createRange();
+      range.selectNodeContents(email);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
     }
-  });
+    button.addEventListener("click", function () {
+      var text = email.textContent.trim();
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          button.textContent = "Copied";
+          setTimeout(function () { button.textContent = "Copy"; }, 1600);
+        }, function () { selectEmail(); button.textContent = "Press Ctrl+C"; });
+      } catch (e) {
+        selectEmail();
+        button.textContent = "Press Ctrl+C";
+      }
+    });
+  }
+
+  var mobileCta = document.getElementById("mobile-cta");
+  var contact = document.getElementById("contact");
+  if (mobileCta && contact && "IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          mobileCta.style.opacity = "0";
+          mobileCta.style.pointerEvents = "none";
+        } else {
+          mobileCta.style.opacity = "1";
+          mobileCta.style.pointerEvents = "auto";
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(contact);
+  }
 })();
 </script>
 </body>
