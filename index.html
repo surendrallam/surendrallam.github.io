@@ -145,6 +145,8 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .metric strong { font-family: var(--font-display); font-weight: 700; font-size: 1.625rem; line-height: 1.1; color: var(--good); }
 .metric span { font-size: var(--step--1); color: var(--muted); }
 .case .chips { padding-top: 2px; }
+.cases-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.case .actions { margin-top: 2px; }
 
 /* Field notes */
 .notes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; counter-reset: note; }
@@ -300,7 +302,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
       <div class="section-head">
         <p class="eyebrow">Work</p>
         <h2 id="work-title">Proof you can check</h2>
-        <p class="section-lede">One open-source project with every number published, and the production work behind it.</p>
+        <p class="section-lede">Three open-source projects with every number published, and the production work behind them.</p>
       </div>
 
       <article class="featured card" aria-labelledby="featured-title">
@@ -329,6 +331,25 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           </div>
         </div>
       </article>
+
+      <div class="cases cases-2">
+        <article class="case card">
+          <p class="case-tag">Open source · benchmarked · November 2026</p>
+          <h3>A support assistant that answers only from your documents</h3>
+          <p>It cites every answer, says when the documents don't cover a question, and ignores instructions hidden inside them. Haiku answers first; Sonnet answers again only when a check fails. Graded on 64 questions, three runs each, with no LLM judge.</p>
+          <ul class="chips" aria-label="Built with"><li>Claude API</li><li>Citations</li><li>pgvector</li><li>Hybrid search</li><li>Evals</li></ul>
+          <div class="metric"><strong>100% · $0.74</strong><span>192 of 192 answers passed; API cost per 1,000 questions</span></div>
+          <div class="actions"><a class="btn btn-ghost arrow" href="https://github.com/surendrallam/grounded-rag-assistant">Code and results</a></div>
+        </article>
+        <article class="case card">
+          <p class="case-tag">Open source · benchmarked · November 2026</p>
+          <h3>A refund-email agent: the model writes, code decides</h3>
+          <p>Claude reads each refund email, looks up the customer and the charge, and writes the reply. Code decides eligibility, amounts and limits, and sends anything outside the policy to a person. Tested on 30 tickets, three runs per model.</p>
+          <ul class="chips" aria-label="Built with"><li>Claude API</li><li>Tool use</li><li>Evals</li><li>Python</li></ul>
+          <div class="metric"><strong>0 rule violations</strong><span>in 270 graded runs; Haiku passed 90 of 90 at $0.60 per 1,000 tickets</span></div>
+          <div class="actions"><a class="btn btn-ghost arrow" href="https://github.com/surendrallam/refund-triage-agent">Code and results</a></div>
+        </article>
+      </div>
 
       <div class="cases">
         <article class="case card">
