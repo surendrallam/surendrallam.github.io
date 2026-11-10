@@ -15,6 +15,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Surendra Allam: AI features that hold up in production.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Surendra Allam, Senior AI engineer">
+<meta name="twitter:description" content="AI features that hold up in production. Open-source benchmark: Claude Haiku 5.5 answered 96.7% of 50 data questions correctly at $0.67 per 1,000.">
 <meta name="twitter:image" content="https://surendrallam.com/img/og.png">
 <meta name="theme-color" content="#2443c4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1319" media="(prefers-color-scheme: dark)">
@@ -146,10 +148,11 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .featured-body h3 { font-size: var(--step-2); font-weight: 700; line-height: 1.15; }
 .featured-body p { color: var(--muted); }
 .results { width: 100%; border-collapse: collapse; font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
-.results th { font: 500 0.75rem/1.2 var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 0 8px; border-bottom: 1px solid var(--line); }
+.results thead th { font: 500 0.75rem/1.2 var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 0 8px; border-bottom: 1px solid var(--line); }
+.results tbody th { font: inherit; font-weight: normal; color: var(--fg); text-transform: none; text-align: left; padding: 10px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
 .results td { padding: 10px 0; border-bottom: 1px solid var(--line); }
-.results tr:last-child td { border-bottom: 0; }
-.results td + td, .results th + th { text-align: right; padding-left: 12px; }
+.results tr:last-child td, .results tr:last-child th { border-bottom: 0; }
+.results td + td, .results th + td, .results th + th { text-align: right; padding-left: 12px; }
 .results .top { color: var(--good); font-weight: 600; }
 .results td:first-child { white-space: nowrap; }
 .results .narrow { display: none; }
@@ -271,8 +274,27 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
   .results { font-size: 0.875rem; }
   .results .wide { display: none; }
   .results .narrow { display: inline; }
-  .mobile-cta { display: block; position: fixed; bottom: max(16px, env(safe-area-inset-bottom, 16px)); right: 16px; z-index: 99; transition: opacity 0.2s ease; }
-  .mobile-cta .btn { box-shadow: 0 4px 16px color-mix(in srgb, var(--fg) 20%, transparent); padding: 12px 18px; font-size: var(--step--1); }
+  .mobile-cta {
+    display: block;
+    position: fixed;
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    right: 16px;
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .mobile-cta.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .mobile-cta .btn {
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--fg) 20%, transparent);
+    padding: 10px 16px;
+    font-size: var(--step--1);
+  }
 }
 @media (max-width: 420px) {
   .ledger-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -367,9 +389,9 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
             <caption class="eyebrow" style="text-align:left;padding-bottom:10px">Accuracy and cost, 150 graded runs per model</caption>
             <thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col"><span class="wide">$ per 1,000 questions</span><span class="narrow">$ / 1,000 q</span></th></tr></thead>
             <tbody>
-              <tr><td>Claude Haiku 5.5</td><td>96.7%</td><td>$0.67</td></tr>
-              <tr><td>Claude Sonnet 5.5</td><td class="top">100%</td><td>$8.34</td></tr>
-              <tr><td>Claude Opus 5.5</td><td class="top">100%</td><td>$19.70</td></tr>
+              <tr><th scope="row">Claude Haiku 5.5</th><td>96.7%</td><td>$0.67</td></tr>
+              <tr><th scope="row">Claude Sonnet 5.5</th><td class="top">100%</td><td>$8.34</td></tr>
+              <tr><th scope="row">Claude Opus 5.5</th><td class="top">100%</td><td>$19.70</td></tr>
             </tbody>
           </table>
           <ul class="chips" aria-label="Built with">
@@ -606,7 +628,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           <h3>Career</h3>
           <ol class="timeline">
             <li><span class="when">2026 – now</span><div><strong>Project Lead, AI products</strong><span>Lead a team shipping three AI products for customers in the US and India, built AI-first with Claude Code.</span></div></li>
-            <li><span class="when">2025 – 2026</span><div><strong>AI Technical Lead, freelance</strong></div></li>
+            <li><span class="when">2025 – 2026</span><div><strong>AI Technical Lead, freelance</strong><span>Consulting on AI agents, knowledge assistants, and LLM evaluations.</span></div></li>
             <li><span class="when">2024 – 2025</span><div><strong>Senior AI Software Engineer, Tech Mahindra</strong><span>ML performance benchmarking (MLPerf) for GPU and TPU subsystems on next-generation Android devices.</span></div></li>
             <li><span class="when">2019 – 2024</span><div><strong>Lead Application Engineer, Exaleap Semiconductors</strong><span>Led a team of 8 engineers deploying deep-learning models on custom chips.</span></div></li>
             <li><span class="when">2016 – 2019</span><div><strong>Embedded systems and power electronics</strong><span>Hardware, firmware and product engineering.</span></div></li>
@@ -620,7 +642,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           </ul>
           <h3>Research</h3>
           <ul class="facts">
-            <li><strong>IEEE international conferences</strong><span><a href="[TODO Surendra: IEEE Xplore URL]">Papers on deep-learning object detection</a></span></li>
+            <li><strong>IEEE international conferences</strong><span><a href="https://ieeexplore.ieee.org/document/9641594">Paper on deep-learning object detection (IEEE MysuruCon)</a></span></li>
             <li><strong>De Gruyter international conference</strong><span>Paper from M.Tech research</span></li>
           </ul>
           <h3>Recognition</h3>
@@ -653,6 +675,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
             <li><a href="mailto:hello@surendrallam.com?subject=20-minute%20call">Book a 20-minute call</a><span>By email</span></li>
             <li><a href="https://www.linkedin.com/in/surendrallam">LinkedIn</a><span>Services and newsletter</span></li>
             <li><a href="https://github.com/surendrallam">GitHub</a><span>Code and benchmarks</span></li>
+            <li><a href="https://www.upwork.com/freelancers/~0153808387ccfd697b">Upwork</a><span>Contract through escrow</span></li>
           </ul>
         </div>
       </div>
@@ -665,7 +688,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
   </footer>
 </div>
 <div class="mobile-cta" id="mobile-cta">
-  <a class="btn btn-primary" href="#contact">Tell me what you want to build →</a>
+  <a class="btn btn-primary" href="#contact">Get in touch →</a>
 </div>
 <script>
 (function () {
@@ -694,19 +717,29 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
   }
 
   var mobileCta = document.getElementById("mobile-cta");
+  var hero = document.querySelector(".hero");
   var contact = document.getElementById("contact");
-  if (mobileCta && contact && "IntersectionObserver" in window) {
+  if (mobileCta && hero && contact && "IntersectionObserver" in window) {
+    var heroVisible = false;
+    var contactVisible = false;
+    function updateCta() {
+      if (!heroVisible && !contactVisible) {
+        mobileCta.classList.add("visible");
+      } else {
+        mobileCta.classList.remove("visible");
+      }
+    }
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          mobileCta.style.opacity = "0";
-          mobileCta.style.pointerEvents = "none";
-        } else {
-          mobileCta.style.opacity = "1";
-          mobileCta.style.pointerEvents = "auto";
+        if (entry.target === hero) {
+          heroVisible = entry.isIntersecting;
+        } else if (entry.target === contact) {
+          contactVisible = entry.isIntersecting;
         }
       });
+      updateCta();
     }, { threshold: 0.1 });
+    observer.observe(hero);
     observer.observe(contact);
   }
 })();
