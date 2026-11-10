@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Surendra Allam builds AI agents, knowledge assistants and voice agents into existing products, and measures them: accuracy, cost per answer, latency.">
-<meta property="og:title" content="Surendra Allam, AI engineer">
+<meta property="og:title" content="Surendra Allam, Senior AI engineer">
 <meta property="og:description" content="AI features that hold up in production. Open-source benchmark: Claude Haiku 5.5 answered 96.7% of 50 data questions correctly at $0.67 per 1,000.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://surendrallam.com/">
+<link rel="canonical" href="https://surendrallam.com/">
 <meta property="og:image" content="https://surendrallam.com/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,7 +21,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <!-- Cloudflare Web Analytics: paste the snippet from your Cloudflare dashboard here once the site is live. -->
-<title>Surendra Allam</title>
+<title>Surendra Allam · Senior AI Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap">
@@ -152,12 +153,26 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 20px; }
 .case { display: grid; gap: 14px; align-content: start; padding: 26px; }
 .case p { color: var(--muted); font-size: 0.9375rem; }
+.case-flow { display: grid; gap: 8px; }
+.case-flow p { color: var(--muted); font-size: 0.9375rem; margin: 0; }
+.case-flow strong { color: var(--fg); font-weight: 600; }
 .metric { display: grid; gap: 2px; padding-top: 14px; margin-top: auto; border-top: 1px solid var(--line); }
 .metric strong { font-family: var(--font-display); font-weight: 700; font-size: 1.625rem; line-height: 1.1; color: var(--good); }
 .metric span { font-size: var(--step--1); color: var(--muted); }
 .case .chips { padding-top: 2px; }
 .cases-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .case .actions { margin-top: 2px; }
+
+/* Packaged offers */
+.offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.offer { display: grid; gap: 14px; align-content: start; padding: 26px; }
+.offer-head { display: grid; gap: 6px; }
+.offer-head h3 { font-weight: 700; }
+.offer .kicker { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.04em; margin: 0; }
+.offer-terms { display: flex; align-items: baseline; gap: 10px; margin-top: 4px; font-family: var(--font-mono); font-size: 0.875rem; }
+.offer-terms .price { font-weight: 700; color: var(--fg); }
+.offer-terms .duration { color: var(--muted); }
+.offer p { color: var(--muted); font-size: 0.9375rem; }
 
 /* Field notes */
 .notes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; counter-reset: note; }
@@ -223,7 +238,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
   .featured { grid-template-columns: minmax(0, 1fr); }
   .shot { padding: 20px 0 0 20px; }
   .shot img { max-height: 340px; }
-  .cases { grid-template-columns: minmax(0, 1fr); }
+  .cases, .offers { grid-template-columns: minmax(0, 1fr); }
   .background { grid-template-columns: minmax(0, 1fr); }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about { grid-template-columns: 6rem minmax(0, 1fr); }
@@ -233,8 +248,8 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 @media (max-width: 640px) {
   section { padding-block: 52px; }
   .hero { padding-block: 28px 52px; }
-  .notes, .services, .steps { grid-template-columns: minmax(0, 1fr); }
-  .featured-body, .case, .service, .note { padding: 22px; }
+  .notes, .services, .steps, .offers { grid-template-columns: minmax(0, 1fr); }
+  .featured-body, .case, .service, .note, .offer { padding: 22px; }
   .about { grid-template-columns: minmax(0, 1fr); }
   .about > div:last-child { grid-column: auto; }
   .timeline li { grid-template-columns: minmax(0, 1fr); }
@@ -262,6 +277,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
       <a href="#work">Work</a>
       <a href="#notes">Notes</a>
       <a href="#services">Services</a>
+      <a href="#offers">Offers</a>
       <a href="#process">How I work</a>
       <a href="#about">About</a>
       <a class="nav-cta" href="#contact">Contact</a>
@@ -370,21 +386,33 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
         <article class="case card">
           <p class="case-tag">Production · data assistant</p>
           <h3>A data assistant that answers in plain English</h3>
-          <p>People ask questions in plain English. The assistant turns them into graph and database queries, runs them, and answers from the data that comes back.</p>
+          <div class="case-flow">
+            <p><strong>Problem:</strong> [TODO Surendra: problem before the data assistant]</p>
+            <p><strong>What I built:</strong> A natural-language data assistant built with Amazon Bedrock and Neo4j. People ask questions in plain English. The assistant turns them into graph and database queries, runs them, and answers from the data that comes back.</p>
+            <p><strong>Result:</strong> Shipped in three production products.</p>
+          </div>
           <ul class="chips" aria-label="Stack"><li>Amazon Bedrock</li><li>Neo4j</li></ul>
           <div class="metric"><strong>3 products</strong><span>live in production</span></div>
         </article>
         <article class="case card">
           <p class="case-tag">Production · LLM cost</p>
           <h3>Cutting the LLM bill on repeat queries</h3>
-          <p>Lowered what a production LLM assistant pays for the questions it is asked again and again.</p>
+          <div class="case-flow">
+            <p><strong>Problem:</strong> [TODO Surendra: problem with repeat-query LLM costs]</p>
+            <p><strong>What I built:</strong> [TODO Surendra: what was built to cut repeat-query costs]</p>
+            <p><strong>Result:</strong> Repeat-query LLM cost cut by about 90% on a production assistant.</p>
+          </div>
           <ul class="chips" aria-label="Focus"><li>Cost per answer</li><li>Latency</li></ul>
           <div class="metric"><strong>~90% lower</strong><span>LLM cost on repeat queries</span></div>
         </article>
         <article class="case card">
           <p class="case-tag">Team · AI-first engineering</p>
           <h3>Moving a team to AI-first delivery</h3>
-          <p>The engineering team I lead moved to AI-first development with Claude Code, across three AI products for customers in the US and India.</p>
+          <div class="case-flow">
+            <p><strong>Problem:</strong> [TODO Surendra: delivery bottleneck before moving to AI-first development]</p>
+            <p><strong>What I built:</strong> Moved an engineering team shipping three AI products for customers in the US and India to AI-first development with Claude Code.</p>
+            <p><strong>Result:</strong> Feature delivery went from weeks to days.</p>
+          </div>
           <ul class="chips" aria-label="Stack"><li>Claude Code</li></ul>
           <div class="metric"><strong>Weeks → days</strong><span>feature delivery time</span></div>
         </article>
@@ -464,6 +492,52 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
       </div>
     </section>
 
+    <section id="offers" aria-labelledby="offers-title">
+      <div class="section-head">
+        <p class="eyebrow">Packaged offers</p>
+        <h2 id="offers-title">Fixed-scope AI services</h2>
+        <p class="section-lede">Fixed-scope engagements for AI features, evaluation, and voice agents.</p>
+      </div>
+      <div class="offers">
+        <article class="offer card">
+          <div class="offer-head">
+            <p class="kicker">Knowledge assistant</p>
+            <h3>Grounded RAG or agent build</h3>
+            <div class="offer-terms">
+              <span class="price">[PRICE TBD]</span>
+              <span class="duration">[DAYS TBD]</span>
+            </div>
+          </div>
+          <p>Answers grounded in your documents and data, with citations and accuracy checks. Or a tool-calling agent connected to your CRM, Slack, helpdesk or database.</p>
+          <ul class="chips" aria-label="Included"><li>Citations</li><li>Retrieval</li><li>Evals</li><li>Tool use</li></ul>
+        </article>
+        <article class="offer card">
+          <div class="offer-head">
+            <p class="kicker">Cost &amp; latency</p>
+            <h3>LLM cost and latency audit</h3>
+            <div class="offer-terms">
+              <span class="price">[PRICE TBD]</span>
+              <span class="duration">[DAYS TBD]</span>
+            </div>
+          </div>
+          <p>Prompt caching, model routing and evaluations, so quality holds while the bill falls. Includes a benchmark on your own questions before you pick a model.</p>
+          <ul class="chips" aria-label="Included"><li>Prompt caching</li><li>Model routing</li><li>Evals</li></ul>
+        </article>
+        <article class="offer card">
+          <div class="offer-head">
+            <p class="kicker">Voice</p>
+            <h3>Voice agent pilot</h3>
+            <div class="offer-terms">
+              <span class="price">[PRICE TBD]</span>
+              <span class="duration">[DAYS TBD]</span>
+            </div>
+          </div>
+          <p>An inbound receptionist or outbound qualification calls in English and Hindi or Hinglish, tested and deployed with your telephony setup.</p>
+          <ul class="chips" aria-label="Included"><li>Retell</li><li>Vapi</li><li>Bolna</li><li>LiveKit</li></ul>
+        </article>
+      </div>
+    </section>
+
     <section id="process" aria-labelledby="process-title">
       <div class="section-head">
         <p class="eyebrow">How I work</p>
@@ -514,7 +588,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           </ul>
           <h3>Research</h3>
           <ul class="facts">
-            <li><strong>IEEE international conferences</strong><span>Papers on deep-learning object detection</span></li>
+            <li><strong>IEEE international conferences</strong><span><a href="[TODO Surendra: IEEE Xplore URL]">Papers on deep-learning object detection</a></span></li>
             <li><strong>De Gruyter international conference</strong><span>Paper from M.Tech research</span></li>
           </ul>
           <h3>Recognition</h3>
