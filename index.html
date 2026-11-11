@@ -231,6 +231,8 @@ section { padding-block: var(--section-space); border-top: 1px solid var(--line)
 .email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .email { font-family: var(--font-mono); font-size: 1.125rem; overflow-wrap: anywhere; }
 .mail-alt { margin: 0; font-size: var(--step--1); color: var(--muted); }
+.mail-alt.is-flagged { color: var(--fg); border-left: 3px solid var(--accent); padding-left: 10px; }
+.mail-alt.is-flagged a { font-weight: 600; }
 .copy { font: 500 var(--label)/1 var(--font-mono); padding: 9px 10px; min-width: calc(6ch + 22px); border-radius: 6px; border: 1px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; }
 .links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .links a { text-decoration: none; font-weight: 600; }
@@ -644,7 +646,7 @@ section { padding-block: var(--section-space); border-top: 1px solid var(--line)
             <button class="copy" id="copy-email" type="button">Copy</button>
             <span class="visually-hidden" id="copy-status" role="status"></span>
           </div>
-          <p class="mail-alt">Opens your email app. Signed in to Gmail? <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hello@surendrallam.com&amp;su=Project%20enquiry" target="_blank" rel="noopener">Write from Gmail instead</a></p>
+          <p class="mail-alt" id="mail-alt">Opens your email app. Nothing opened? <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hello@surendrallam.com&amp;su=Project%20enquiry&amp;body=What%20your%20product%20does%20and%20who%20uses%20it%3A%0A%0AWhat%20you%20want%20the%20AI%20to%20do%3A%0A%0AYour%20deadline%3A%0A" target="_blank" rel="noopener">Write from Gmail</a> or copy the address.</p>
           <ul class="links">
             <li><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1lDLonmlSD4WkQvxzphlgUtDpD4FfhvhfchgGJ8QPG_4ccwFnVYOuC0g2WVFX9Sg1m1wL8wJJI" target="_blank" rel="noopener">Book a 20-minute call</a><span>Pick a time</span></li>
             <li><a href="https://www.linkedin.com/in/surendrallam" target="_blank" rel="noopener">LinkedIn</a><span>Services and newsletter</span></li>
@@ -698,6 +700,26 @@ section { padding-block: var(--section-space); border-top: 1px solid var(--line)
         selectEmail();
         show(key, "Address selected. Press " + key + " to copy");
       }
+    });
+  }
+
+  var mailAlt = document.getElementById("mail-alt");
+  if (email && mailAlt) {
+    // If no email app takes over within 1.5 s, the page keeps focus: point to the Gmail link and Copy.
+    email.addEventListener("click", function () {
+      var left = false;
+      function away() { left = true; }
+      window.addEventListener("blur", away, { once: true });
+      document.addEventListener("visibilitychange", away, { once: true });
+      window.addEventListener("pagehide", away, { once: true });
+      setTimeout(function () {
+        window.removeEventListener("blur", away);
+        document.removeEventListener("visibilitychange", away);
+        window.removeEventListener("pagehide", away);
+        if (left || !document.hasFocus() || document.visibilityState !== "visible") return;
+        mailAlt.classList.add("is-flagged");
+        if (copyStatus) copyStatus.textContent = "No email app opened. Use Write from Gmail, or copy the address.";
+      }, 1500);
     });
   }
 
