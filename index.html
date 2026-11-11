@@ -705,18 +705,11 @@ section { padding-block: var(--section-space); border-top: 1px solid var(--line)
 
   var mailAlt = document.getElementById("mail-alt");
   if (email && mailAlt) {
-    // If no email app takes over within 1.5 s, the page keeps focus: point to the Gmail link and Copy.
+    // If the page is still in front 1.5 s after the click, no email app took over:
+    // point to the Gmail link and Copy. (Some browsers hide the tab for a moment and come back.)
     email.addEventListener("click", function () {
-      var left = false;
-      function away() { left = true; }
-      window.addEventListener("blur", away, { once: true });
-      document.addEventListener("visibilitychange", away, { once: true });
-      window.addEventListener("pagehide", away, { once: true });
       setTimeout(function () {
-        window.removeEventListener("blur", away);
-        document.removeEventListener("visibilitychange", away);
-        window.removeEventListener("pagehide", away);
-        if (left || !document.hasFocus() || document.visibilityState !== "visible") return;
+        if (!document.hasFocus() || document.visibilityState !== "visible") return;
         mailAlt.classList.add("is-flagged");
         if (copyStatus) copyStatus.textContent = "No email app opened. Use Write from Gmail, or copy the address.";
       }, 1500);
