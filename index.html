@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index, follow">
 <meta name="description" content="Surendra Allam builds AI agents, knowledge assistants and voice agents into existing products, and measures them: accuracy, cost per answer, latency.">
-<meta property="og:title" content="Surendra Allam, Senior AI engineer">
-<meta property="og:description" content="AI features that hold up in production. Open-source benchmark: Claude Haiku 5.5 answered 96.7% of 50 data questions correctly at $0.67 per 1,000.">
+<meta property="og:title" content="Surendra Allam, Senior AI Engineer">
+<meta property="og:description" content="AI features that hold up in production. Open-source benchmark: Claude Haiku 5.5 was right on 96.7% of 150 graded runs (50 questions × 3) at $0.67 per 1,000 questions.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://surendrallam.com/">
 <link rel="canonical" href="https://surendrallam.com/">
@@ -15,8 +15,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Surendra Allam: AI features that hold up in production.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Surendra Allam, Senior AI engineer">
-<meta name="twitter:description" content="AI features that hold up in production. Open-source benchmark: Claude Haiku 5.5 answered 96.7% of 50 data questions correctly at $0.67 per 1,000.">
+<meta name="twitter:title" content="Surendra Allam, Senior AI Engineer">
+<meta name="twitter:description" content="AI features that hold up in production. Open-source benchmark: Claude Haiku 5.5 was right on 96.7% of 150 graded runs (50 questions × 3) at $0.67 per 1,000 questions.">
 <meta name="twitter:image" content="https://surendrallam.com/img/og.png">
 <meta name="theme-color" content="#2443c4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1319" media="(prefers-color-scheme: dark)">
@@ -127,8 +127,6 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .news { display: inline-flex; align-items: center; gap: 10px; width: fit-content; max-width: 100%; padding: 6px 14px 6px 6px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); text-decoration: none; font-size: var(--step--1); }
 .news b { font: 600 0.6875rem/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 8px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); flex: none; }
 .news:hover { border-color: var(--accent); }
-.availability { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); }
-.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--good); flex: none; }
 
 .ledger { padding: 8px 24px; }
 .ledger-row { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 16px; padding-block: 18px; border-bottom: 1px dashed var(--line); align-items: baseline; }
@@ -144,7 +142,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .shot { margin: 0; background: var(--accent-soft); padding: 28px 0 0 28px; display: flex; align-items: flex-start; min-width: 0; }
 .shot img { width: 100%; height: 100%; max-height: 520px; object-fit: cover; object-position: left top; border-radius: 10px 0 0 0; border: 1px solid var(--line); border-right: 0; border-bottom: 0; }
 .featured-body { display: grid; gap: 18px; align-content: start; padding: 32px; min-width: 0; }
-.case-tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.04em; margin: 0; }
+.case-tag, .case .case-tag, .featured-body .case-tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.04em; margin: 0; }
 .featured-body h3 { font-size: var(--step-2); font-weight: 700; line-height: 1.15; }
 .featured-body p { color: var(--muted); }
 .results { width: 100%; border-collapse: collapse; font-size: 0.9375rem; font-variant-numeric: tabular-nums; }
@@ -161,9 +159,6 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 20px; }
 .case { display: grid; gap: 14px; align-content: start; padding: 26px; }
 .case p { color: var(--muted); font-size: 0.9375rem; }
-.case-flow { display: grid; gap: 8px; }
-.case-flow p { color: var(--muted); font-size: 0.9375rem; margin: 0; }
-.case-flow strong { color: var(--fg); font-weight: 600; }
 .metric { display: grid; gap: 2px; padding-top: 14px; margin-top: auto; border-top: 1px solid var(--line); }
 .metric strong { font-family: var(--font-display); font-weight: 700; font-size: 1.625rem; line-height: 1.1; color: var(--good); }
 .metric span { font-size: var(--step--1); color: var(--muted); }
@@ -177,17 +172,6 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .work-cta-copy h3 { font-size: var(--step-1); font-weight: 700; }
 .work-cta-copy p { color: var(--muted); font-size: 0.9375rem; }
 
-/* Packaged offers */
-.offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.offer { display: grid; gap: 14px; align-content: start; padding: 26px; }
-.offer-head { display: grid; gap: 6px; }
-.offer-head h3 { font-weight: 700; }
-.offer .kicker { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.04em; margin: 0; }
-.offer-terms { display: flex; align-items: baseline; gap: 10px; margin-top: 4px; font-family: var(--font-mono); font-size: 0.875rem; }
-.offer-terms .price { font-weight: 700; color: var(--fg); }
-.offer-terms .duration { color: var(--muted); }
-.offer p { color: var(--muted); font-size: 0.9375rem; }
-.offer .actions { margin-top: auto; padding-top: 6px; }
 
 /* Field notes */
 .notes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; counter-reset: note; }
@@ -238,6 +222,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 .contact-panel { background: var(--accent-soft); border-radius: var(--radius); padding: 28px; display: grid; gap: 18px; min-width: 0; }
 .email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .email { font-family: var(--font-mono); font-size: 1.0625rem; user-select: all; overflow-wrap: anywhere; }
+.mail-alt { margin: 0; font-size: var(--step--1); color: var(--muted); }
 .copy { font: 500 0.75rem/1 var(--font-mono); padding: 8px 10px; border-radius: 6px; border: 1px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; }
 .links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .links a { text-decoration: none; font-weight: 600; }
@@ -254,7 +239,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
   .featured { grid-template-columns: minmax(0, 1fr); }
   .shot { padding: 20px 0 0 20px; }
   .shot img { max-height: 340px; }
-  .cases, .offers { grid-template-columns: minmax(0, 1fr); }
+  .cases { grid-template-columns: minmax(0, 1fr); }
   .background { grid-template-columns: minmax(0, 1fr); }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about { grid-template-columns: 6rem minmax(0, 1fr); }
@@ -264,8 +249,8 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 @media (max-width: 640px) {
   section { padding-block: 52px; }
   .hero { padding-block: 28px 52px; }
-  .notes, .services, .steps, .offers { grid-template-columns: minmax(0, 1fr); }
-  .featured-body, .case, .service, .note, .offer { padding: 22px; }
+  .notes, .services, .steps { grid-template-columns: minmax(0, 1fr); }
+  .featured-body, .case, .service, .note { padding: 22px; }
   .work-cta { padding: 22px; }
   .about { grid-template-columns: minmax(0, 1fr); }
   .about > div:last-child { grid-column: auto; }
@@ -281,14 +266,17 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
     right: 16px;
     z-index: 99;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: translateY(8px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
   }
   .mobile-cta.visible {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
   }
   .mobile-cta .btn {
     box-shadow: 0 4px 16px color-mix(in srgb, var(--fg) 20%, transparent);
@@ -303,7 +291,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
 @media (prefers-reduced-motion: no-preference) {
   .btn, .nav a, .news { transition: filter 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .mobile-cta { transition: none !important; transform: none !important; } }
 </style>
 </head>
 <body>
@@ -316,7 +304,6 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
       <a href="#work">Work</a>
       <a href="#notes">Notes</a>
       <a href="#services">Services</a>
-      <a href="#offers">Offers</a>
       <a href="#process">How I work</a>
       <a href="#about">About</a>
       <a class="nav-cta" href="#contact">Contact</a>
@@ -326,13 +313,12 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
   <main id="top">
     <div class="hero">
       <div class="hero-copy">
-        <a class="news" href="#work"><b>New</b><span>Open-source benchmark: 3 Claude models, 50 data questions</span></a>
-        <div class="availability"><span class="status-dot" aria-hidden="true"></span><span>Available for selective projects · Overlapping US day and UK evenings</span></div>
-        <p class="eyebrow">Senior AI engineer · Bengaluru, India</p>
+        <a class="news" href="#work"><b>New</b><span>3 open-source AI projects, every number published</span></a>
+        <p class="eyebrow">Senior AI Engineer · Bengaluru, India</p>
         <h1>AI features that hold up in production.</h1>
         <p class="lede">I build AI agents, knowledge assistants and voice agents into products that already have users. Then I measure them: accuracy, cost per answer, latency.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#contact">Tell me what you want to build</a>
+          <a class="btn btn-primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1lDLonmlSD4WkQvxzphlgUtDpD4FfhvhfchgGJ8QPG_4ccwFnVYOuC0g2WVFX9Sg1m1wL8wJJI" target="_blank" rel="noopener">Book a 20-minute call</a>
           <a class="btn btn-ghost" href="#work">See the work</a>
         </div>
       </div>
@@ -398,7 +384,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
             <li>Claude API</li><li>Prompt caching</li><li>MCP server</li><li>Evals</li><li>Python</li>
           </ul>
           <div class="actions">
-            <a class="btn btn-ghost arrow" href="https://github.com/surendrallam/ask-your-data-agent">Code, method and raw results</a>
+            <a class="btn btn-ghost arrow" href="https://github.com/surendrallam/ask-your-data-agent" target="_blank" rel="noopener">Code, method and raw results</a>
           </div>
         </div>
       </article>
@@ -409,16 +395,16 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           <h3>A support assistant that answers only from your documents</h3>
           <p>It cites every answer, says when the documents don't cover a question, and ignores instructions hidden inside them. Haiku answers first; Sonnet answers again only when a check fails. Graded on 64 questions, three runs each, with no LLM judge.</p>
           <ul class="chips" aria-label="Built with"><li>Claude API</li><li>Citations</li><li>pgvector</li><li>Hybrid search</li><li>Evals</li></ul>
-          <div class="metric"><strong>100% · $0.74</strong><span>192 of 192 answers passed; API cost per 1,000 questions</span></div>
-          <div class="actions"><a class="btn btn-ghost arrow" href="https://github.com/surendrallam/grounded-rag-assistant">Code and results</a></div>
+          <div class="metric"><strong>192 of 192 · $0.74</strong><span>answers passed (64 questions × 3 runs); API cost per 1,000 questions</span></div>
+          <div class="actions"><a class="btn btn-ghost arrow" href="https://github.com/surendrallam/grounded-rag-assistant" target="_blank" rel="noopener">Code and results</a></div>
         </article>
         <article class="case card">
           <p class="case-tag">Open source · benchmarked · November 2026</p>
           <h3>A refund-email agent: the model writes, code decides</h3>
           <p>Claude reads each refund email, looks up the customer and the charge, and writes the reply. Code decides eligibility, amounts and limits, and sends anything outside the policy to a person. Tested on 30 tickets, three runs per model.</p>
           <ul class="chips" aria-label="Built with"><li>Claude API</li><li>Tool use</li><li>Evals</li><li>Python</li></ul>
-          <div class="metric"><strong>0 rule violations</strong><span>in 270 graded runs; Haiku passed 90 of 90 at $0.60 per 1,000 tickets</span></div>
-          <div class="actions"><a class="btn btn-ghost arrow" href="https://github.com/surendrallam/refund-triage-agent">Code and results</a></div>
+          <div class="metric"><strong>0 executed rule violations</strong><span>in 270 graded runs; Haiku passed 90 of 90 at $0.60 per 1,000 tickets (warm cache)</span></div>
+          <div class="actions"><a class="btn btn-ghost arrow" href="https://github.com/surendrallam/refund-triage-agent" target="_blank" rel="noopener">Code and results</a></div>
         </article>
       </div>
 
@@ -426,33 +412,21 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
         <article class="case card">
           <p class="case-tag">Production · data assistant</p>
           <h3>A data assistant that answers in plain English</h3>
-          <div class="case-flow">
-            <p><strong>Problem:</strong> [TODO Surendra: problem before the data assistant]</p>
-            <p><strong>What I built:</strong> A natural-language data assistant built with Amazon Bedrock and Neo4j. People ask questions in plain English. The assistant turns them into graph and database queries, runs them, and answers from the data that comes back.</p>
-            <p><strong>Result:</strong> Shipped in three production products.</p>
-          </div>
+          <p>People ask questions in plain English. The assistant turns them into graph and database queries, runs them, and answers from the data that comes back.</p>
           <ul class="chips" aria-label="Stack"><li>Amazon Bedrock</li><li>Neo4j</li></ul>
           <div class="metric"><strong>3 products</strong><span>live in production</span></div>
         </article>
         <article class="case card">
           <p class="case-tag">Production · LLM cost</p>
           <h3>Cutting the LLM bill on repeat queries</h3>
-          <div class="case-flow">
-            <p><strong>Problem:</strong> [TODO Surendra: problem with repeat-query LLM costs]</p>
-            <p><strong>What I built:</strong> [TODO Surendra: what was built to cut repeat-query costs]</p>
-            <p><strong>Result:</strong> Repeat-query LLM cost cut by about 90% on a production assistant.</p>
-          </div>
+          <p>Lowered what a production LLM assistant pays for the questions it is asked again and again.</p>
           <ul class="chips" aria-label="Focus"><li>Cost per answer</li><li>Latency</li></ul>
           <div class="metric"><strong>~90% lower</strong><span>LLM cost on repeat queries</span></div>
         </article>
         <article class="case card">
           <p class="case-tag">Team · AI-first engineering</p>
           <h3>Moving a team to AI-first delivery</h3>
-          <div class="case-flow">
-            <p><strong>Problem:</strong> [TODO Surendra: delivery bottleneck before moving to AI-first development]</p>
-            <p><strong>What I built:</strong> Moved an engineering team shipping three AI products for customers in the US and India to AI-first development with Claude Code.</p>
-            <p><strong>Result:</strong> Feature delivery went from weeks to days.</p>
-          </div>
+          <p>The engineering team I lead moved to AI-first development with Claude Code, across three AI products for customers in the US and India.</p>
           <ul class="chips" aria-label="Stack"><li>Claude Code</li></ul>
           <div class="metric"><strong>Weeks → days</strong><span>feature delivery time</span></div>
         </article>
@@ -464,8 +438,8 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           <p>Send three lines about what you want to build. I reply with a scoped plan and a fixed price.</p>
         </div>
         <div class="actions">
-          <a class="btn btn-primary" href="#contact">Tell me what you want to build</a>
-          <a class="btn btn-ghost" href="#offers">View packaged offers</a>
+          <a class="btn btn-primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1lDLonmlSD4WkQvxzphlgUtDpD4FfhvhfchgGJ8QPG_4ccwFnVYOuC0g2WVFX9Sg1m1wL8wJJI" target="_blank" rel="noopener">Book a 20-minute call</a>
+          <a class="btn btn-ghost" href="#contact">Email me instead</a>
         </div>
       </div>
     </section>
@@ -494,7 +468,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           <p>At low effort, Sonnet's only miss was skipping a clarifying question about an ambiguous name. Opus stayed perfect even at low effort, its cheapest setting.</p>
         </li>
       </ol>
-      <p class="notes-foot"><a class="arrow" href="https://github.com/surendrallam/ask-your-data-agent#results">Read the method and every result </a></p>
+      <p class="notes-foot"><a class="arrow" href="https://github.com/surendrallam/ask-your-data-agent#results" target="_blank" rel="noopener">Read the method and every result </a></p>
     </section>
 
     <section id="services" aria-labelledby="services-title">
@@ -543,55 +517,6 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
       </div>
     </section>
 
-    <section id="offers" aria-labelledby="offers-title">
-      <div class="section-head">
-        <p class="eyebrow">Packaged offers</p>
-        <h2 id="offers-title">Fixed-scope AI services</h2>
-        <p class="section-lede">Fixed-scope engagements for AI features, evaluation, and voice agents.</p>
-      </div>
-      <div class="offers">
-        <article class="offer card">
-          <div class="offer-head">
-            <p class="kicker">Knowledge assistant</p>
-            <h3>Grounded RAG or agent build</h3>
-            <div class="offer-terms">
-              <span class="price">[PRICE TBD]</span>
-              <span class="duration">[DAYS TBD]</span>
-            </div>
-          </div>
-          <p>Answers grounded in your documents and data, with citations and accuracy checks. Or a tool-calling agent connected to your CRM, Slack, helpdesk or database.</p>
-          <ul class="chips" aria-label="Included"><li>Citations</li><li>Retrieval</li><li>Evals</li><li>Tool use</li></ul>
-          <div class="actions"><a class="btn btn-ghost arrow" href="#contact">Discuss this offer</a></div>
-        </article>
-        <article class="offer card">
-          <div class="offer-head">
-            <p class="kicker">Cost &amp; latency</p>
-            <h3>LLM cost and latency audit</h3>
-            <div class="offer-terms">
-              <span class="price">[PRICE TBD]</span>
-              <span class="duration">[DAYS TBD]</span>
-            </div>
-          </div>
-          <p>Prompt caching, model routing and evaluations, so quality holds while the bill falls. Includes a benchmark on your own questions before you pick a model.</p>
-          <ul class="chips" aria-label="Included"><li>Prompt caching</li><li>Model routing</li><li>Evals</li></ul>
-          <div class="actions"><a class="btn btn-ghost arrow" href="#contact">Discuss this offer</a></div>
-        </article>
-        <article class="offer card">
-          <div class="offer-head">
-            <p class="kicker">Voice</p>
-            <h3>Voice agent pilot</h3>
-            <div class="offer-terms">
-              <span class="price">[PRICE TBD]</span>
-              <span class="duration">[DAYS TBD]</span>
-            </div>
-          </div>
-          <p>An inbound receptionist or outbound qualification calls in English and Hindi or Hinglish, tested and deployed with your telephony setup.</p>
-          <ul class="chips" aria-label="Included"><li>Retell</li><li>Vapi</li><li>Bolna</li><li>LiveKit</li></ul>
-          <div class="actions"><a class="btn btn-ghost arrow" href="#contact">Discuss this offer</a></div>
-        </article>
-      </div>
-    </section>
-
     <section id="process" aria-labelledby="process-title">
       <div class="section-head">
         <p class="eyebrow">How I work</p>
@@ -628,7 +553,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           <h3>Career</h3>
           <ol class="timeline">
             <li><span class="when">2026 – now</span><div><strong>Project Lead, AI products</strong><span>Lead a team shipping three AI products for customers in the US and India, built AI-first with Claude Code.</span></div></li>
-            <li><span class="when">2025 – 2026</span><div><strong>AI Technical Lead, freelance</strong><span>Consulting on AI agents, knowledge assistants, and LLM evaluations.</span></div></li>
+            <li><span class="when">2025 – 2026</span><div><strong>AI Technical Lead, TechieMaya (freelance)</strong><span>Led the design, build and deployment of AI and LLM-based solutions and their integration into client platforms; defined AI strategy, data requirements and solution architecture with stakeholders; guided the team, reviewed code and mentored engineers.</span></div></li>
             <li><span class="when">2024 – 2025</span><div><strong>Senior AI Software Engineer, Tech Mahindra</strong><span>ML performance benchmarking (MLPerf) for GPU and TPU subsystems on next-generation Android devices.</span></div></li>
             <li><span class="when">2019 – 2024</span><div><strong>Lead Application Engineer, Exaleap Semiconductors</strong><span>Led a team of 8 engineers deploying deep-learning models on custom chips.</span></div></li>
             <li><span class="when">2016 – 2019</span><div><strong>Embedded systems and power electronics</strong><span>Hardware, firmware and product engineering.</span></div></li>
@@ -642,7 +567,7 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
           </ul>
           <h3>Research</h3>
           <ul class="facts">
-            <li><strong>IEEE international conferences</strong><span><a href="https://ieeexplore.ieee.org/document/9641594">Paper on deep-learning object detection (IEEE MysuruCon)</a></span></li>
+            <li><strong>IEEE international conferences</strong><span>Papers on deep-learning object detection (<a href="https://ieeexplore.ieee.org/document/9641594" target="_blank" rel="noopener">one on IEEE Xplore</a>)</span></li>
             <li><strong>De Gruyter international conference</strong><span>Paper from M.Tech research</span></li>
           </ul>
           <h3>Recognition</h3>
@@ -668,14 +593,15 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
         </div>
         <div class="contact-panel">
           <div class="email-row">
-            <a class="email" id="email" href="mailto:hello@surendrallam.com">hello@surendrallam.com</a>
+            <a class="email" id="email" href="mailto:hello@surendrallam.com?subject=Project%20enquiry&amp;body=What%20your%20product%20does%20and%20who%20uses%20it%3A%0D%0A%0D%0AWhat%20you%20want%20the%20AI%20to%20do%3A%0D%0A%0D%0AYour%20deadline%3A%0D%0A">hello@surendrallam.com</a>
             <button class="copy" id="copy-email" type="button">Copy</button>
           </div>
+          <p class="mail-alt">Opens your email app. Signed in to Gmail? <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hello@surendrallam.com&amp;su=Project%20enquiry" target="_blank" rel="noopener">Write from Gmail instead</a></p>
           <ul class="links">
-            <li><a href="mailto:hello@surendrallam.com?subject=20-minute%20call">Book a 20-minute call</a><span>By email</span></li>
-            <li><a href="https://www.linkedin.com/in/surendrallam">LinkedIn</a><span>Services and newsletter</span></li>
-            <li><a href="https://github.com/surendrallam">GitHub</a><span>Code and benchmarks</span></li>
-            <li><a href="https://www.upwork.com/freelancers/~0153808387ccfd697b">Upwork</a><span>Contract through escrow</span></li>
+            <li><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1lDLonmlSD4WkQvxzphlgUtDpD4FfhvhfchgGJ8QPG_4ccwFnVYOuC0g2WVFX9Sg1m1wL8wJJI" target="_blank" rel="noopener">Book a 20-minute call</a><span>Pick a time</span></li>
+            <li><a href="https://www.linkedin.com/in/surendrallam" target="_blank" rel="noopener">LinkedIn</a><span>Services and newsletter</span></li>
+            <li><a href="https://github.com/surendrallam" target="_blank" rel="noopener">GitHub</a><span>Code and benchmarks</span></li>
+            <li><a href="https://www.upwork.com/freelancers/~0153808387ccfd697b" target="_blank" rel="noopener">Upwork</a><span>If you prefer to hire through Upwork</span></li>
           </ul>
         </div>
       </div>
@@ -687,9 +613,9 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
     <span>Built with Claude Code</span>
   </footer>
 </div>
-<div class="mobile-cta" id="mobile-cta">
-  <a class="btn btn-primary" href="#contact">Get in touch →</a>
-</div>
+<aside class="mobile-cta" id="mobile-cta" aria-label="Quick contact" inert>
+  <a class="btn btn-primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1lDLonmlSD4WkQvxzphlgUtDpD4FfhvhfchgGJ8QPG_4ccwFnVYOuC0g2WVFX9Sg1m1wL8wJJI" target="_blank" rel="noopener">Book a 20-minute call</a>
+</aside>
 <script>
 (function () {
   var button = document.getElementById("copy-email");
@@ -719,32 +645,32 @@ section { padding-block: 72px; border-top: 1px solid var(--line); scroll-margin-
   var mobileCta = document.getElementById("mobile-cta");
   var hero = document.querySelector(".hero");
   var contact = document.getElementById("contact");
+  var workCta = document.querySelector(".work-cta");
+  var workCtaVisible = false;
   if (mobileCta && hero && contact && "IntersectionObserver" in window) {
     var heroVisible = hero.getBoundingClientRect().bottom > 0 && hero.getBoundingClientRect().top < window.innerHeight;
     var contactVisible = contact.getBoundingClientRect().top < window.innerHeight && contact.getBoundingClientRect().bottom > 0;
     function updateCta() {
-      if (!heroVisible && !contactVisible) {
-        mobileCta.classList.add("visible");
-      } else {
-        mobileCta.classList.remove("visible");
-      }
+      var show = !heroVisible && !contactVisible && !workCtaVisible;
+      mobileCta.classList.toggle("visible", show);
+      mobileCta.inert = !show;
     }
     updateCta();
-    mobileCta.addEventListener("click", function () {
-      mobileCta.classList.remove("visible");
-    });
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.target === hero) {
           heroVisible = entry.isIntersecting;
         } else if (entry.target === contact) {
           contactVisible = entry.isIntersecting;
+        } else if (entry.target === workCta) {
+          workCtaVisible = entry.isIntersecting;
         }
       });
       updateCta();
     }, { threshold: 0 });
     observer.observe(hero);
     observer.observe(contact);
+    if (workCta) observer.observe(workCta);
   }
 })();
 </script>
